@@ -1,0 +1,14 @@
+{
+  "profile_id": "anchor_male_hi",
+  "display_name": "Male News Anchor — Hindi",
+  "language": "hi",
+  "gender": "male",
+  "engine_preference": ["voxtral_tts", "xtts_v2", "edge_tts"],
+  "reference_audio_filename": "anchor_male_hi_reference.wav",
+  "speaking_rate": 1.0,
+  "style": "professional_news",
+  "description": "Professional male news anchor voice for Hindi broadcast content",
+  "phase_available": 1,
+  "cloning_enabled": true,
+  "notes": "Reference audio must be 10-25 seconds of clean speech, no background noise, broadcast quality"
+}

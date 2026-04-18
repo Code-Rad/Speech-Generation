@@ -1,0 +1,14 @@
+{
+  "profile_id": "anchor_female_en",
+  "display_name": "Female News Anchor — English",
+  "language": "en",
+  "gender": "female",
+  "engine_preference": ["fish_s2_pro", "xtts_v2", "edge_tts"],
+  "reference_audio_filename": "anchor_female_en_reference.wav",
+  "speaking_rate": 1.0,
+  "style": "professional_news",
+  "description": "Professional female news anchor voice for English broadcast content",
+  "phase_available": 1,
+  "cloning_enabled": true,
+  "notes": "Reference audio must be 10-25 seconds of clean speech, no background noise, broadcast quality"
+}

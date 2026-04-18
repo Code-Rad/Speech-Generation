@@ -1,0 +1,36 @@
+# ─────────────────────────────────────────────────────────────
+# VoiceForge — Python Dependencies
+# Backend: FastAPI on TRIJYA-7 (Windows 11, RTX 4090)
+# ─────────────────────────────────────────────────────────────
+
+# ── Web Framework ─────────────────────────────────────────────
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+
+# ── Request Handling & File I/O ───────────────────────────────
+python-multipart>=0.0.9
+aiofiles>=23.2.1
+httpx>=0.27.0
+
+# ── Data Validation & Settings ────────────────────────────────
+pydantic>=2.6.0
+python-dotenv>=1.0.0
+
+# ── TTS Engine 1: Edge TTS (emergency fallback, no GPU needed) ─
+edge-tts>=6.1.9
+
+# ── TTS Engine 2: XTTS v2 via Coqui TTS (Phase 1 primary) ────
+TTS>=0.22.0
+
+# ── Audio Processing ──────────────────────────────────────────
+soundfile>=0.12.1
+numpy>=1.26.0
+
+# ── GPU / PyTorch (CUDA build installed separately on TRIJYA-7)
+# Install via: pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+torch>=2.2.0
+torchaudio>=2.2.0
+
+# ── NOTE: Phase 2 engines (Voxtral via vLLM-Omni, Fish S2 Pro via SGLang)
+# are installed inside WSL2 on TRIJYA-7 — not listed here.
+# See CLAUDE.md Section 9 (How to Run) for WSL2 setup instructions.

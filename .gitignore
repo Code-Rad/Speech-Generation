@@ -1,0 +1,73 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# VoiceForge — Git Ignore Rules
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Environment & Secrets ─────────────────────────────────────────────────────
+# Never commit .env files — they contain server addresses and credentials.
+server/.env
+client/.env.local
+client/.env.production
+.env
+
+# ── Generated Audio Output ────────────────────────────────────────────────────
+# Generated audio files are runtime artifacts, not source code.
+server/output/*.wav
+server/output/*.mp3
+server/output/*.flac
+
+# ── Reference Audio ───────────────────────────────────────────────────────────
+# Reference audio files are large binary files — store with Git LFS if needed.
+# The .gitkeep file is committed; actual .wav files are not.
+server/reference_audio/*.wav
+server/reference_audio/*.mp3
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+pip-log.txt
+
+# ── Virtual Environments ──────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── ML Model Caches ───────────────────────────────────────────────────────────
+# XTTS v2 downloads ~2GB model on first run — cache is local only.
+# Default Coqui TTS cache location on Windows:
+# C:\Users\<user>\AppData\Local\tts\
+# These patterns cover if the cache is placed inside the project:
+*.pth
+*.pt
+*.onnx
+server/models/
+
+# ── Node.js (Frontend) ────────────────────────────────────────────────────────
+client/node_modules/
+client/.next/
+client/out/
+client/.vercel/
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/

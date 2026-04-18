@@ -1,0 +1,70 @@
+INFO:     Started server process [22960]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61681 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61625 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52481 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52483 - "GET /engines HTTP/1.1" 200 OK
+2026-04-16 12:11:17 | INFO     | profile_manager | Loaded 6/6 voice profiles from C:\VoiceForge\server\voice_profiles
+INFO:     127.0.0.1:52485 - "GET /voices HTTP/1.1" 200 OK
+2026-04-16 12:11:19 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:11:19 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=en).
+2026-04-16 12:11:22 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_male_en_20260416_064119_fe881206.wav' (voice=en-US-GuyNeural, time=2.51s, draft=True)
+2026-04-16 12:11:22 | INFO     | main | Served audio: profile=anchor_male_en, engine=edge_tts, draft=True, duration=7.1s, file=anchor_male_en_20260416_064119_fe881206.wav
+INFO:     127.0.0.1:52487 - "POST /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52494 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52496 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52498 - "GET /engines HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52500 - "GET /voices HTTP/1.1" 200 OK
+2026-04-16 12:11:50 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:11:50 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=en).
+2026-04-16 12:11:51 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_male_en_20260416_064150_7c780e19.wav' (voice=en-US-GuyNeural, time=1.25s, draft=True)
+2026-04-16 12:11:51 | INFO     | main | Served audio: profile=anchor_male_en, engine=edge_tts, draft=True, duration=7.1s, file=anchor_male_en_20260416_064150_7c780e19.wav
+INFO:     127.0.0.1:52502 - "POST /generate HTTP/1.1" 200 OK
+2026-04-16 12:11:54 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:11:54 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=en).
+2026-04-16 12:11:55 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_female_en_20260416_064154_7b0b66fd.wav' (voice=en-US-JennyNeural, time=1.12s, draft=True)
+2026-04-16 12:11:55 | INFO     | main | Served audio: profile=anchor_female_en, engine=edge_tts, draft=True, duration=3.4s, file=anchor_female_en_20260416_064154_7b0b66fd.wav
+INFO:     127.0.0.1:52507 - "POST /generate HTTP/1.1" 200 OK
+2026-04-16 12:11:57 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:11:57 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=hi).
+2026-04-16 12:11:58 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_male_hi_20260416_064157_232f71ae.wav' (voice=hi-IN-MadhurNeural, time=1.06s, draft=True)
+2026-04-16 12:11:58 | INFO     | main | Served audio: profile=anchor_male_hi, engine=edge_tts, draft=True, duration=6.4s, file=anchor_male_hi_20260416_064157_232f71ae.wav
+INFO:     127.0.0.1:52512 - "POST /generate HTTP/1.1" 200 OK
+2026-04-16 12:12:00 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:12:00 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=hi).
+2026-04-16 12:12:03 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_female_hi_20260416_064200_c5d29df9.wav' (voice=hi-IN-SwaraNeural, time=3.40s, draft=True)
+2026-04-16 12:12:03 | INFO     | main | Served audio: profile=anchor_female_hi, engine=edge_tts, draft=True, duration=6.4s, file=anchor_female_hi_20260416_064200_c5d29df9.wav
+INFO:     127.0.0.1:52517 - "POST /generate HTTP/1.1" 200 OK
+2026-04-16 12:12:05 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:12:05 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=hinglish).
+2026-04-16 12:12:06 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_male_hinglish_20260416_064205_4ef046aa.wav' (voice=en-US-GuyNeural, time=1.17s, draft=True)
+2026-04-16 12:12:06 | INFO     | main | Served audio: profile=anchor_male_hinglish, engine=edge_tts, draft=True, duration=7.1s, file=anchor_male_hinglish_20260416_064205_4ef046aa.wav
+INFO:     127.0.0.1:52522 - "POST /generate HTTP/1.1" 200 OK
+2026-04-16 12:12:09 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:12:09 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=en).
+2026-04-16 12:12:10 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_male_en_20260416_064209_95017b2a.wav' (voice=en-US-GuyNeural, time=0.93s, draft=True)
+2026-04-16 12:12:10 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:12:10 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=hi).
+2026-04-16 12:12:11 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_male_hi_20260416_064210_947d3cbf.wav' (voice=hi-IN-MadhurNeural, time=1.10s, draft=True)
+2026-04-16 12:12:11 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:12:11 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=en).
+2026-04-16 12:12:12 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_male_en_20260416_064211_14c1ff5e.wav' (voice=en-US-GuyNeural, time=1.31s, draft=True)
+2026-04-16 12:12:12 | INFO     | main | Batch complete: 3/3 succeeded in 3.35s
+INFO:     127.0.0.1:50348 - "POST /generate-batch HTTP/1.1" 200 OK
+2026-04-16 12:12:14 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:12:14 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=en).
+2026-04-16 12:12:15 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_male_en_20260416_064214_01f22ce4.wav' (voice=en-US-GuyNeural, time=1.07s, draft=True)
+2026-04-16 12:12:15 | WARNING  | engine.engine_factory | Engine 'xtts_v2' reports is_available()=False. Trying next engine in chain.
+2026-04-16 12:12:15 | WARNING  | engine.engine_factory | Primary engine 'xtts_v2' unavailable. Falling back to 'edge_tts' (language=en).
+2026-04-16 12:12:16 | INFO     | engine.edge_engine | Edge TTS: generated audio at 'C:\VoiceForge\server\output\anchor_female_en_20260416_064215_e7863b69.wav' (voice=en-US-JennyNeural, time=0.92s, draft=True)
+2026-04-16 12:12:16 | INFO     | main | Batch complete: 2/3 succeeded in 1.99s
+INFO:     127.0.0.1:50359 - "POST /generate-batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50367 - "POST /generate HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50369 - "POST /generate HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:50371 - "POST /generate HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:50373 - "POST /clone-voice HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50375 - "POST /clone-voice HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:50377 - "GET /voices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50379 - "GET /health HTTP/1.1" 200 OK

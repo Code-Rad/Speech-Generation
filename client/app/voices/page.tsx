@@ -5,28 +5,34 @@
  * VoiceForge — Voice Manager
  * Record or upload reference audio for each anchor voice profile.
  * Saved voices persist on the server in server/reference_audio/.
+ *
+ * After a successful clone, shows a shortcut button that navigates to
+ * the generator with that profile pre-selected: router.push('/?profile=...')
+ * Header/footer provided by app/layout.tsx.
  */
 
 import { useCallback, useEffect, useState } from "react";
-import { Mic2, Radio } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { Mic2 } from "lucide-react";
 import { fetchVoices } from "@/lib/api";
 import type { VoiceProfile } from "@/lib/types";
 import EngineStatusStrip from "@/components/EngineStatusStrip";
 import VoiceProfileManagerCard from "@/components/VoiceProfileManagerCard";
 import { Toast, useToast } from "@/components/Toast";
 
-const NAV = [
-  { label: "Generator", href: "/" },
-  { label: "Voices", href: "/voices", active: true },
-  { label: "History", href: "/history" },
-  { label: "Engines", href: "/engines" },
-];
-
 export default function VoicesPage() {
+  const router = useRouter();
   const [profiles, setProfiles] = useState<VoiceProfile[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  // Track most recently cloned profile for the "→ Generate" shortcut
+  const [lastClonedId, setLastClonedId] = useState<string | null>(null);
   const { toasts, addToast, dismiss } = useToast();
+
+  useEffect(() => {
+    document.title = "Voices — VoiceForge";
+  }, []);
 
   const loadProfiles = useCallback(async () => {
     try {
@@ -54,50 +60,23 @@ export default function VoicesPage() {
           : p
       )
     );
+    setLastClonedId(profileId);
   }, []);
 
   const clonedCount = profiles.filter((p) => p.has_reference_audio).length;
   const totalCount = profiles.length;
 
   return (
-    <div className="min-h-dvh bg-background bg-grid">
+    <>
       {/* Toast container */}
       <Toast toasts={toasts} onDismiss={dismiss} />
 
-      {/* ── Header ──────────────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 border-b border-white/5 bg-background/80 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center">
-              <Radio className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-display font-semibold text-white tracking-tight">
-              VoiceForge
-            </span>
-            <span className="text-xs px-1.5 py-0.5 rounded bg-white/8 text-white/40 border border-white/8 font-mono">
-              Phase 1
-            </span>
-          </div>
-          <nav className="hidden sm:flex items-center gap-1">
-            {NAV.map(({ label, href, active }) => (
-              <a
-                key={href}
-                href={href}
-                className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
-                  active
-                    ? "text-white bg-white/8"
-                    : "text-white/50 hover:text-white/80 hover:bg-white/5"
-                }`}
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
-
-      {/* ── Main ────────────────────────────────────────────────────────────── */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+      <motion.main
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6"
+      >
         <EngineStatusStrip />
 
         {/* Page title */}
@@ -138,6 +117,26 @@ export default function VoicesPage() {
           </div>
         )}
 
+        {/* "→ Generate speech with this voice" shortcut — appears after cloning */}
+        {lastClonedId && (
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/25 rounded-xl px-4 py-3"
+          >
+            <span className="text-emerald-400 text-sm">✓</span>
+            <p className="text-sm text-emerald-300 flex-1">
+              Voice cloned successfully.
+            </p>
+            <button
+              onClick={() => router.push(`/?profile=${lastClonedId}`)}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/30 text-emerald-300 text-xs font-medium rounded-lg transition-colors flex-shrink-0"
+            >
+              → Generate speech with this voice
+            </button>
+          </motion.div>
+        )}
+
         {/* Loading skeletons */}
         {loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -173,15 +172,7 @@ export default function VoicesPage() {
             ))}
           </div>
         )}
-      </main>
-
-      {/* ── Footer ──────────────────────────────────────────────────────────── */}
-      <footer className="border-t border-white/5 mt-16 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs text-white/20">
-          <span>VoiceForge — Phase 1 · TRIJYA-7</span>
-          <span>XTTS v2 · Edge TTS · FastAPI</span>
-        </div>
-      </footer>
-    </div>
+      </motion.main>
+    </>
   );
 }
